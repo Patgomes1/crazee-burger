@@ -3,32 +3,35 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+
+function App() {
+  // state données
+  const [username, setUsername] = useState('')
+
+  // Comportement
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const form = event.target
+    const inputUsername = form.username.value
+    setUsername(inputUsername)
+    alert(`Bienvenue ${inputUsername} !`)
+    form.reset()
+  }
+
+
+  // affichage
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>Bienvenue chez nous !</h1>
+      <h2>Connectez-vous</h2>
+      <form action="submit" onSubmit={handleSubmit}>
+        <label>
+          <input type="text" name="username" placeholder='Entrez votre prenom' required />
+        </label>
+        <button type="submit">Accéder à votre espace</button>
+      </form>
+    </div>
   )
 }
 
