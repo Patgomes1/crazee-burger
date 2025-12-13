@@ -13,7 +13,7 @@ import { Route, Routes } from 'react-router-dom'
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/order" element={<OrderPage />} />
-        <Route path="/error" element={<ErrorPage />} /> 
+        <Route path="*" element={<ErrorPage />} /> 
       </Routes>
     )
   }
