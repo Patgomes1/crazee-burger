@@ -20,7 +20,8 @@ export default function LoginForm({onSuccess}) {
 
     //Affichage
   return (
-    <form onSubmit={handleSubmit}>
+    <form 
+    onSubmit={handleSubmit}>
           <h1>Bienvenue chez nous !</h1>
           <h2>Connectez-vous</h2>
           <input value={username} type="text" name="username" placeholder='Entrez votre prenom' onChange={handleChange} required />
