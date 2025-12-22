@@ -1,7 +1,7 @@
 import React from 'react'
-import logo from '../../../assets/logo-orange.png'
+import logo from '../../assets/logo-orange.png'
 import styled from 'styled-components'
-import { theme } from '../../../theme'
+import { theme } from '../../theme'
 
 export default function Logo() {
   return (

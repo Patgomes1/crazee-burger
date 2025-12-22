@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { theme } from '../../../theme'
 import { LoginPageStyled } from './LoginPageStyled'
-import Logo from './Logo'
+// import Logo from './Logo'
+import Logo from "../../reusable-ui/Logo";
+
 
 
 export default function LoginPage() {
