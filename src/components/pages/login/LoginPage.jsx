@@ -30,18 +30,28 @@ export default function LoginPage() {
 }
 
 const LoginPageStyled = styled.div`
-  min-height: 100dvh;
+  height: 100vh;
   width: 100vw;
-
-  background-image: url("src/assets/burger-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-blend-mode: darken;
+
+  ::before {
+    content: "";
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("src/assets/burger-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+
 `;
 
 
