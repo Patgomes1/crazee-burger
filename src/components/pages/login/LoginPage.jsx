@@ -19,7 +19,7 @@ export default function LoginPage() {
     //Affichage
     return (
         <LoginPageStyled>
-            <Logo />
+            <Logo size='lg'/>
             <LoginForm
                 onSuccess = {(username) =>{
                     navigate("/order", {state: { username }})
