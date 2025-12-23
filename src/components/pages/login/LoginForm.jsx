@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { theme } from '../../../theme';
 import { FaRegCircleUser } from 'react-icons/fa6';
+import { IoChevronForwardOutline } from 'react-icons/io5';
 
 export default function LoginForm({ onSuccess }) {
   //State
@@ -36,7 +37,13 @@ export default function LoginForm({ onSuccess }) {
           required
         />
       </div>
-      <button type="submit">Accéder à mon espace</button>
+
+      <button className="button-with-icon" type="submit">
+        Accéder à mon espace
+        <span>
+          <IoChevronForwardOutline className="icon" />
+        </span>
+      </button>
     </LoginFormStyled>
   );
 }
@@ -86,20 +93,62 @@ const LoginFormStyled = styled.form`
     color: ${theme.colors.greyDark};
     margin: 0px 32px;
   }
-  button {
-    width: 400px;
-    height: 53px;
+  .button-with-icon {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 1;
+
+    padding: 18px 24px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 800;
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.primary_burger};
+    border: 1px solid ${theme.colors.primary_burger};
+
+    &:hover:not(:disabled) {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary_burger};
+      border: 1px solid ${theme.colors.primary_burger};
+      transition: all 200ms ease-out;
+    }
+
+    &:active {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary_burger};
+      border: 1px solid ${theme.colors.primary_burger};
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      margin-left: 10px;
+    }
+
+    /*     height: 53px;
     background-color: ${theme.colors.primary_burger};
     padding: 16px 8px;
     gap: 12.8px;
     border-radius: 5px;
-    margin: 0px 32px 40px 32px;
+    margin: 0px 32px 40px 32px; */
   }
-  button:hover {
+  /* button:hover {
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary_burger};
     cursor: pointer;
-  }
+  } */
   .input-with-icon {
     border: 1px solid ${theme.colors.greyDark};
     border-radius: 5px;
@@ -119,6 +168,7 @@ const LoginFormStyled = styled.form`
     }
 
     input {
+      margin-left: auto;
       border: none;
       outline: none;
       flex: 1;
