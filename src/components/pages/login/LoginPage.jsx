@@ -1,32 +1,29 @@
-import { useState } from 'react'
-import LoginForm from './LoginForm'
-import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
-import { theme } from '../../../theme'
+import { useState } from 'react';
+import LoginForm from './LoginForm';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { theme } from '../../../theme';
 //import { LoginPageStyled } from './LoginPageStyled'
 // import Logo from './Logo'
-import Logo from "../../reusable-ui/Logo";
-
-
+import Logo from '../../reusable-ui/Logo';
 
 export default function LoginPage() {
+  //State
+  const navigate = useNavigate();
 
-    //State
-    const navigate = useNavigate()
+  //Comportement
 
-    //Comportement
-
-    //Affichage
-    return (
-        <LoginPageStyled>
-            <Logo size='lg'/>
-            <LoginForm
-                onSuccess = {(username) =>{
-                    navigate("/order", {state: { username }})
-                }} />
-        
-        </LoginPageStyled>
-    )
+  //Affichage
+  return (
+    <LoginPageStyled>
+      <Logo size="lg" />
+      <LoginForm
+        onSuccess={(username) => {
+          navigate('/order', { state: { username } });
+        }}
+      />
+    </LoginPageStyled>
+  );
 }
 
 const LoginPageStyled = styled.div`
@@ -38,8 +35,9 @@ const LoginPageStyled = styled.div`
   justify-content: center;
 
   ::before {
-    content: "";
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("src/assets/burger-bg.jpg");
+    content: '';
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('src/assets/burger-bg.jpg');
     background-size: cover;
     background-position: center;
     background-blend-mode: darken;
@@ -50,8 +48,4 @@ const LoginPageStyled = styled.div`
     bottom: 0;
     z-index: -1;
   }
-
-
 `;
-
-

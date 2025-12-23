@@ -1,7 +1,5 @@
-import styled from 'styled-components'
-import burgerBg from "../../../assets/burger-bg.jpg";
-
-
+import styled from 'styled-components';
+import burgerBg from '../../../assets/burger-bg.jpg';
 
 export const LoginPageStyled = styled.div`
   min-height: 100dvh;
