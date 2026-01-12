@@ -5,6 +5,7 @@ import { theme } from '../../../theme';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 import TextInput from '../../reusable-ui/TextInput';
 import { FaRegCircleUser } from 'react-icons/fa6';
+import PrimaryButton from '../../reusable-ui/PrimaryButton';
 
 export default function LoginForm({ onSuccess }) {
   //State
@@ -34,12 +35,10 @@ export default function LoginForm({ onSuccess }) {
         placeholder={'Entrez votre prénom'}
         required
       />
-      <button className="button-with-icon" type="submit">
-        Accéder à mon espace
-        <span>
-          <IoChevronForwardOutline className="icon" />
-        </span>
-      </button>
+      <PrimaryButton
+        label={'Accéder à votre espace'}
+        Icon={<IoChevronForwardOutline className="icon" />}
+      />
     </LoginFormStyled>
   );
 }
@@ -91,56 +90,13 @@ const LoginFormStyled = styled.form`
     color: ${theme.colors.greyDark};
     margin: 0px 32px;
   }
-  .button-with-icon {
-    width: 100%;
-    display: inline-flex;
-    justify-content: center;
+
+  .icon {
+    display: flex;
     align-items: center;
-    position: relative;
-    white-space: nowrap;
-    text-decoration: none;
-    line-height: 1;
-
-    padding: 18px 24px;
-    border-radius: 5px;
+    justify-content: center;
     font-size: 15px;
-    font-weight: 800;
-    color: ${theme.colors.white};
-    background-color: ${theme.colors.primary_burger};
-    border: 1px solid ${theme.colors.primary_burger};
-
-    &:hover:not(:disabled) {
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.primary_burger};
-      border: 1px solid ${theme.colors.primary_burger};
-      transition: all 200ms ease-out;
-    }
-
-    &:active {
-      color: ${theme.colors.white};
-      background-color: ${theme.colors.primary_burger};
-      border: 1px solid ${theme.colors.primary_burger};
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-
-    .icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      margin-left: 10px;
-    }
-
-    /*     height: 53px;
-    background-color: ${theme.colors.primary_burger};
-    padding: 16px 8px;
-    gap: 12.8px;
-    border-radius: 5px;
-    margin: 0px 32px 40px 32px; */
+    margin-left: 10px;
   }
   /* button:hover {
     background-color: ${theme.colors.white};
