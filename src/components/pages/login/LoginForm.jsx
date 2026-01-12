@@ -2,8 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { theme } from '../../../theme';
-import { FaRegCircleUser } from 'react-icons/fa6';
 import { IoChevronForwardOutline } from 'react-icons/io5';
+import Input from './Input';
+import { FaRegCircleUser } from 'react-icons/fa6';
 
 export default function LoginForm({ onSuccess }) {
   //State
@@ -26,18 +27,13 @@ export default function LoginForm({ onSuccess }) {
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
-      <div className="input-with-icon">
-        <FaRegCircleUser className="icon" />
-        <input
-          value={username}
-          type="text"
-          name="username"
-          placeholder="Entrez votre prénom"
-          onChange={handleChange}
-          required
-        />
-      </div>
-
+      <Input
+        value={username}
+        onChange={handleChange}
+        Icon={<FaRegCircleUser className="icon" />}
+        placeholder={'Entrez votre prénom'}
+        required
+      />
       <button className="button-with-icon" type="submit">
         Accéder à mon espace
         <span>
@@ -82,6 +78,8 @@ const LoginFormStyled = styled.form`
     width: 400px;
     border: 1px solid ${theme.colors.primary_burger};
     margin-bottom: 40px;
+    margin-top: -10px;
+    margin-bottom: auto;
   }
   input {
     width: 400px;
@@ -149,34 +147,4 @@ const LoginFormStyled = styled.form`
     color: ${theme.colors.primary_burger};
     cursor: pointer;
   } */
-  .input-with-icon {
-    border: 1px solid ${theme.colors.greyDark};
-    border-radius: 5px;
-    padding: 18px 24px;
-    margin: 18px 0px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 400px;
-    height: 55px;
-    background-color: ${theme.colors.white};
-
-    .icon {
-      font-size: 15px;
-      margin-right: 8px;
-      color: ${theme.colors.greyBlue};
-    }
-
-    input {
-      margin-left: auto;
-      border: none;
-      outline: none;
-      flex: 1;
-    }
-
-    &::placeholder {
-      background: white;
-      color: ${theme.colors.greyBlue};
-    }
-  }
 `;
