@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { theme } from '../../../theme';
 import { IoChevronForwardOutline } from 'react-icons/io5';
-import Input from './Input';
+import TextInput from '../../reusable-ui/TextInput';
 import { FaRegCircleUser } from 'react-icons/fa6';
 
 export default function LoginForm({ onSuccess }) {
@@ -27,7 +27,7 @@ export default function LoginForm({ onSuccess }) {
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
-      <Input
+      <TextInput
         value={username}
         onChange={handleChange}
         Icon={<FaRegCircleUser className="icon" />}
