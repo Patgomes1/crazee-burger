@@ -38,10 +38,11 @@ const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ size }) => sizes[size].gap};
+  margin-top: -100px;
 
   h1 {
     font-size: ${({ size }) => sizes[size].text};
-    font-weight: ${theme.weights.bold};
+    font-weight: ${theme.fonts.weights.bold};
     letter-spacing: 1.5px;
     font-family: 'Amatic SC', cursive;
     color: ${({ color }) => color};
@@ -49,7 +50,7 @@ const LogoWrapper = styled.div`
 
   img {
     width: ${({ size }) => sizes[size].img};
-    height: auto;
+    //height: auto;
   }
 `;
 
