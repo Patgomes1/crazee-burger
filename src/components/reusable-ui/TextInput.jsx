@@ -25,6 +25,7 @@ const InputStyled = styled.div`
 
   input {
     border: none;
+    outline: none;
     font-size: ${theme.fonts.size.P0};
     width: 400px;
     height: 53px;
