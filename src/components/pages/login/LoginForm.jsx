@@ -78,16 +78,6 @@ const LoginFormStyled = styled.form`
     border: 1px solid ${theme.colors.primary_burger};
     //margin-bottom: ${theme.gridUnit * 5}px;
   }
-  input {
-    width: 400px;
-    height: 53px;
-    background-color: ${theme.colors.white};
-    padding: 16px 8px;
-    gap: 12.8px;
-    border-radius: ${theme.borderRadius.round};
-    color: ${theme.colors.greyDark};
-    margin: 0px 32px;
-  }
 
   .icon {
     display: flex;
