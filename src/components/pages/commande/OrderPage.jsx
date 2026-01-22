@@ -19,8 +19,10 @@ export default function OrderPage() {
   //Affichage
   return (
     <OrderPageStyled>
-      <h1>Bonjour {username}</h1>
-      <button onClick={handleClick}>Déconnexion</button>
+      <div className="container">
+        <h1>Bonjour {username}</h1>
+        <button onClick={handleClick}>Déconnexion</button>
+      </div>
     </OrderPageStyled>
   );
 }
@@ -32,4 +34,15 @@ const OrderPageStyled = styled.div`
   justify-content: center;
   min-height: 100vh;
   width: 100vw;
+  background: wheat;
+
+  .container {
+    background: red;
+    height: 95vh;
+    width: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
