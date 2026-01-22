@@ -38,7 +38,6 @@ const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ size }) => sizes[size].gap};
-  margin-top: -100px;
 
   h1 {
     font-size: ${({ size }) => sizes[size].text};
