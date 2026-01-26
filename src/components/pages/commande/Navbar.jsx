@@ -1,17 +1,12 @@
-import React from 'react';
 import styled from 'styled-components';
-import Logo from '../../reusable-ui/Logo';
+import NavbarLeftSide from './NavbarLeftSide';
+import NavbarRightSide from './NavbarRightSide';
 
 export default function Navbar({ username, onLogout }) {
   return (
     <NavbarStyled>
-      <div className="logo">
-        <Logo size="md" />
-      </div>
-      <div className="user-info">
-        <p>Bonjour {username}</p>
-        <button onClick={onLogout}>Se déconnecter</button>
-      </div>
+      <NavbarLeftSide />
+      <NavbarRightSide username={username} onLogout={onLogout} />
     </NavbarStyled>
   );
 }
@@ -24,22 +19,4 @@ const NavbarStyled = styled.nav`
   justify-content: space-between;
   align-items: center;
   border: 2px solid blue;
-
-  .logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid yellow;
-    height: 100%;
-    //margin-left: 20px;
-  }
-  .user-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid orange;
-    height: 100%;
-  }
 `;
