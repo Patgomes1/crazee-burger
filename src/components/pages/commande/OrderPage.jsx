@@ -16,7 +16,6 @@ export default function OrderPage() {
   const handleClick = () => {
     navigate('/');
   };
-  //console.log("username = " + username);
 
   //Affichage
   return (

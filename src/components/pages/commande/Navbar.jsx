@@ -19,4 +19,5 @@ const NavbarStyled = styled.nav`
   justify-content: space-between;
   align-items: center;
   border: 2px solid blue;
+  padding: 0 20px;
 `;
