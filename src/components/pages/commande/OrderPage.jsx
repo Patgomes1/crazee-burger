@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme } from '../../../theme';
 import Navbar from './Navbar';
+import Main from './Main';
 
 export default function OrderPage() {
   //State
@@ -22,7 +23,7 @@ export default function OrderPage() {
     <OrderPageStyled>
       <div className="container">
         <Navbar username={username} />
-        <div className="main">main</div>
+        <Main />
       </div>
     </OrderPageStyled>
   );
@@ -44,12 +45,5 @@ const OrderPageStyled = styled.div`
     display: flex;
     flex-direction: column;
     border: 2px solid black;
-
-    .main {
-      flex-grow: 1;
-      background: lightgray;
-      color: black;
-      border: 2px solid green;
-    }
   }
 `;

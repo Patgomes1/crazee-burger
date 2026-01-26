@@ -36,7 +36,7 @@ const NavbarStyled = styled.nav`
   }
   .user-info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 2px solid orange;
