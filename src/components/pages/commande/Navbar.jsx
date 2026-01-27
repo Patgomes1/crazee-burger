@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import NavbarLeftSide from './NavbarLeftSide';
 import NavbarRightSide from './NavbarRightSide';
 import { theme } from '../../../theme';
+import { refreshPage } from '../../../utils/window';
 
 export default function Navbar({ username, onLogout }) {
   return (
     <NavbarStyled>
-      <NavbarLeftSide onClick={() => window.location.reload()} />
+      <NavbarLeftSide onClick={() => refreshPage()} />
       <NavbarRightSide username={username} onLogout={onLogout} />
     </NavbarStyled>
   );
