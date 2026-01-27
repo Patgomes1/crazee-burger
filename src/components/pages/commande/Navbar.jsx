@@ -6,7 +6,7 @@ import { theme } from '../../../theme';
 export default function Navbar({ username, onLogout }) {
   return (
     <NavbarStyled>
-      <NavbarLeftSide />
+      <NavbarLeftSide onClick={() => window.location.reload()} />
       <NavbarRightSide username={username} onLogout={onLogout} />
     </NavbarStyled>
   );

@@ -3,11 +3,18 @@ import styled from 'styled-components';
 import { theme } from '../../theme';
 
 export default function Logo({
+  className,
+  onClick,
   size = 'md', // sm | md | lg
   color = theme.colors.primary,
 }) {
   return (
-    <LogoStyled size={size} color={color}>
+    <LogoStyled
+      className={className}
+      size={size}
+      color={color}
+      onClick={onClick}
+    >
       <h1>CRAZEE</h1>
       <img src={logo} alt="Logo burger" />
       <h1>BURGER</h1>
