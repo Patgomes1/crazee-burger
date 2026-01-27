@@ -15,13 +15,12 @@ const NavbarRightSideStyled = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 2px solid orange;
   height: 100%;
   font-size: ${theme.fonts.size.P0};
   font-weight: ${theme.fonts.weights.regular};
   padding-right: 50px;
 
   .admin-button {
-    background: lightblue;
+    background: ${theme.colors.lightBlue};
   }
 `;

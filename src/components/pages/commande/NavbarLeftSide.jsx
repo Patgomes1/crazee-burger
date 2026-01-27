@@ -13,7 +13,6 @@ const NavbarLeftSideStyled = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 2px solid yellow;
   height: 100%;
   //margin-left: 20px;
 `;

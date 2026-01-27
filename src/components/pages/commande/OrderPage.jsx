@@ -35,14 +35,14 @@ const OrderPageStyled = styled.div`
   justify-content: center;
   min-height: 100vh;
   width: 100vw;
-  background: wheat;
+  background: ${theme.colors.primary};
 
   .container {
-    background: red;
     height: 95vh;
     width: 1400px;
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
+    border-top-left-radius: ${theme.borderRadius.extraRound};
+    border-top-right-radius: ${theme.borderRadius.extraRound};
   }
 `;
