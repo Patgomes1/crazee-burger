@@ -1,10 +1,19 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  height: 100%;
+html,
+body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'open sans', sans-serif;
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -45,8 +54,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -92,10 +99,4 @@ button:focus-visible {
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
 }

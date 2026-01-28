@@ -16,7 +16,9 @@ export default function LoginPage() {
   //Affichage
   return (
     <LoginPageStyled>
-      <Logo size="lg" />
+      <div className="logo-container">
+        <Logo size="lg" />
+      </div>
       <LoginForm
         onSuccess={(username) => {
           navigate('/order', { state: { username } });
@@ -47,5 +49,8 @@ const LoginPageStyled = styled.div`
     right: 0;
     bottom: 0;
     z-index: -1;
+  }
+  .logo-container {
+    margin-top: -100px;
   }
 `;

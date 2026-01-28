@@ -1,18 +1,24 @@
-import React from 'react';
 import logo from '../../assets/logo-orange.png';
 import styled from 'styled-components';
 import { theme } from '../../theme';
 
 export default function Logo({
+  className,
+  onClick,
   size = 'md', // sm | md | lg
   color = theme.colors.primary,
 }) {
   return (
-    <LogoWrapper size={size} color={color}>
+    <LogoStyled
+      className={className}
+      size={size}
+      color={color}
+      onClick={onClick}
+    >
       <h1>CRAZEE</h1>
       <img src={logo} alt="Logo burger" />
       <h1>BURGER</h1>
-    </LogoWrapper>
+    </LogoStyled>
   );
 }
 
@@ -34,11 +40,10 @@ const sizes = {
   },
 };
 
-const LogoWrapper = styled.div`
+const LogoStyled = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ size }) => sizes[size].gap};
-  margin-top: -100px;
 
   h1 {
     font-size: ${({ size }) => sizes[size].text};
