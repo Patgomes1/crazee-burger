@@ -1,8 +1,17 @@
 import styled from 'styled-components';
 import { theme } from '../../../theme';
+import Card from './Card';
 
 export default function Main() {
-  return <MainStyled>main1</MainStyled>;
+  return (
+    <MainStyled>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </MainStyled>
+  );
 }
 
 const MainStyled = styled.div`
@@ -13,4 +22,7 @@ const MainStyled = styled.div`
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.background_white};
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+
+  display: grid;
+  grid-template-columns: 50% 50%;
 `;
