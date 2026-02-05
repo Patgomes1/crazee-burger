@@ -46,6 +46,8 @@ const OrderPageStyled = styled.div`
     flex-direction: column;
     border-top-left-radius: ${theme.borderRadius.extraRound};
     border-top-right-radius: ${theme.borderRadius.extraRound};
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom-right-radius: ${theme.borderRadius.extraRound};
     overflow: scroll;
 
     .navbar-container {
