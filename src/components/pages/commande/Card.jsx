@@ -8,7 +8,7 @@ import styled from 'styled-components';
 export default function Card() {
   return (
     <CardStyled>
-      <img src="public/images/burger2.png" alt="Card" />
+      <img src="/images/burger2.png" alt="Card" />
       <h3>fakeMenu.title</h3>
       <p>Description de la carte</p>
     </CardStyled>
