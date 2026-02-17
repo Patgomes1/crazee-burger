@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import NavbarLeftSide from './NavbarLeftSide';
 import NavbarRightSide from './NavbarRightSide';
-import { theme } from '../../../theme';
-import { refreshPage } from '../../../utils/window';
+import { theme } from '../../../../theme';
+import { refreshPage } from '../../../../utils/window';
 
 export default function Navbar({ username, onLogout }) {
   return (
