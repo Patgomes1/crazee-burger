@@ -6,24 +6,24 @@ import PrimaryButton from '../../reusable-ui/PrimaryButton';
 //Comportement
 
 // Affichage
-export default function Card() {
+export default function Product({ title, imageSource, price }) {
   return (
-    <CardStyled>
-      <img src="/images/burger2.png" alt="Card" />
+    <ProductStyled>
+      <img src={imageSource} alt={title} />
       <div className="info">
         <div className="title">
-          <span>fakeMenu.title</span>
+          <span>{title}</span>
         </div>
         <div className="description">
-          <p>17.00 €</p>
+          <p>{price} €</p>
           <PrimaryButton className="add-to-cart" label={'Ajouter'} />
         </div>
       </div>
-    </CardStyled>
+    </ProductStyled>
   );
 }
 
-const CardStyled = styled.div`
+const ProductStyled = styled.div`
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

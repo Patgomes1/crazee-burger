@@ -48,12 +48,13 @@ const OrderPageStyled = styled.div`
     border-top-right-radius: ${theme.borderRadius.extraRound};
     border-bottom-left-radius: ${theme.borderRadius.extraRound};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
-    overflow: scroll;
+    overflow-y: scroll;
 
     .navbar-container {
       position: sticky;
       top: 0;
       z-index: 1;
+      border-bottom-color: ${theme.colors.lightGray};
     }
   }
 `;
