@@ -6,7 +6,7 @@ import Basket from './Basket';
 export default function Main() {
   return (
     <MainStyled>
-      <Basket />
+      {/* <Basket /> */}
       <Menu />
     </MainStyled>
   );
@@ -20,8 +20,7 @@ const MainStyled = styled.div`
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.background_white};
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
-  padding: 50px 50px 150px;
 
   display: grid;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 1fr;
 `;
