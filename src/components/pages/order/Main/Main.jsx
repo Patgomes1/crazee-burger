@@ -1,24 +1,13 @@
 import styled from 'styled-components';
 import { theme } from '../../../../theme';
-import Card from '../Card';
+import Menu from './Menu';
+import Basket from './Basket';
 
 export default function Main() {
   return (
     <MainStyled>
-      <div className="basket"></div>
-      <div className="menu">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <Basket />
+      <Menu />
     </MainStyled>
   );
 }
@@ -35,16 +24,4 @@ const MainStyled = styled.div`
 
   display: grid;
   grid-template-columns: 10% 90%;
-
-  .basket {
-    background: pink;
-  }
-
-  .menu {
-    background: purple;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 40px;
-    grid-row-gap: 60px;
-  }
 `;
