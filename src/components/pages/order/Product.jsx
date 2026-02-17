@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import PrimaryButton from '../../reusable-ui/PrimaryButton';
+import { formatPrice } from '../../../utils/maths';
 
 //State
 
@@ -15,7 +16,7 @@ export default function Product({ title, imageSource, price }) {
           <span>{title}</span>
         </div>
         <div className="description">
-          <p>{price} €</p>
+          <p>{formatPrice(price)}</p>
           <PrimaryButton className="add-to-cart" label={'Ajouter'} />
         </div>
       </div>
