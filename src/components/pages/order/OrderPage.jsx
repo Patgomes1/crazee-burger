@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme } from '../../../theme';
-import Navbar from './Navbar';
-import Main from './Main';
+import Main from './Main/Main';
+import Navbar from './Navbar/Navbar';
 
 export default function OrderPage() {
   //State
@@ -21,7 +21,9 @@ export default function OrderPage() {
   return (
     <OrderPageStyled>
       <div className="container">
-        <Navbar username={username} />
+        <div className="navbar-container">
+          <Navbar username={username} />
+        </div>
         <Main />
       </div>
     </OrderPageStyled>
@@ -44,5 +46,15 @@ const OrderPageStyled = styled.div`
     flex-direction: column;
     border-top-left-radius: ${theme.borderRadius.extraRound};
     border-top-right-radius: ${theme.borderRadius.extraRound};
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom-right-radius: ${theme.borderRadius.extraRound};
+    overflow-y: scroll;
+
+    .navbar-container {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      border-bottom-color: ${theme.colors.lightGray};
+    }
   }
 `;
