@@ -22,10 +22,10 @@ export default function NavbarRightSide({ username, onLogout }) {
         autoClose: 5000,
       });
     } else {
-      toast.info('Mode admin désactivé', {
+      /* toast.info('Mode admin désactivé', {
         theme: 'dark',
         position: 'bottom-right',
-      });
+      }); */
     }
   };
 
