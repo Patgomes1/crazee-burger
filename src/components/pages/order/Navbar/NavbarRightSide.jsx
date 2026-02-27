@@ -3,7 +3,7 @@ import { theme } from '../../../../theme';
 import Profile from './Profile';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ToggleButton from './ToggleButton';
+import ToggleButton from '../../../reusable-ui/ToggleButton';
 import { useState } from 'react';
 
 export default function NavbarRightSide({ username, onLogout }) {
@@ -33,7 +33,13 @@ export default function NavbarRightSide({ username, onLogout }) {
   return (
     <NavbarRightSideStyled>
       {/* <div className="admin-button">Admin</div> */}
-      <ToggleButton isChecked={isAdmin} onToggle={handleAdminClick} />
+      <ToggleButton
+        className="admin-button"
+        isChecked={isAdmin}
+        onToggle={handleAdminClick}
+        labelIfChecked="Désactiver le mode admin"
+        labelIfUnchecked="Activer le mode admin"
+      />
       <ToastContainer className="toaster" bodyClassName="body-toast" />
       <Profile username={username} />
     </NavbarRightSideStyled>
@@ -51,6 +57,7 @@ const NavbarRightSideStyled = styled.div`
 
   .admin-button {
     background: ${theme.colors.lightBlue};
+    margin-right: 50px;
   }
   .toaster {
     max-width: 300px;
