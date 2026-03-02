@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { theme } from '../../../../theme';
 import Profile from './Profile';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import ToggleButton from '../../../reusable-ui/ToggleButton';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import ToastAdmin from './ToastAdmin';
 
 export default function NavbarRightSide({ username, onLogout }) {
   //State
@@ -40,8 +40,8 @@ export default function NavbarRightSide({ username, onLogout }) {
         labelIfChecked="Désactiver le mode admin"
         labelIfUnchecked="Activer le mode admin"
       />
-      <ToastContainer className="toaster" bodyClassName="body-toast" />
       <Profile username={username} />
+      <ToastAdmin />
     </NavbarRightSideStyled>
   );
 }
@@ -58,22 +58,5 @@ const NavbarRightSideStyled = styled.div`
   .admin-button {
     background: ${theme.colors.lightBlue};
     margin-right: 50px;
-  }
-  .toaster {
-    max-width: 300px;
-  }
-
-  .Toastify__toast.Toastify__toast-theme--dark.Toastify__toast--info {
-    background: ${theme.colors.background_dark};
-  }
-
-  .body-toast {
-    .Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter {
-      margin-right: 20px;
-      margin-left: 5px;
-    }
-    div {
-      line-height: 1.3em;
-    }
   }
 `;
