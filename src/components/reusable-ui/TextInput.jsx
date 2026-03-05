@@ -18,7 +18,7 @@ const InputStyled = styled.div`
   margin: 18px 0px;
 
   .icon {
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-right: ${theme.spacing.xs};
     color: ${theme.colors.greySemiDark};
   }
@@ -26,7 +26,7 @@ const InputStyled = styled.div`
   input {
     border: none;
     outline: none;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     width: 400px;
     height: 53px;
     background-color: ${theme.colors.white};

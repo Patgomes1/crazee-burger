@@ -51,7 +51,7 @@ const NavbarRightSideStyled = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-size: ${theme.fonts.size.P0};
+  font-size: ${theme.fonts.size.SM};
   font-weight: ${theme.fonts.weights.regular};
   padding-right: 50px;
 
