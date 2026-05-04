@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { theme } from '../../../../theme';
 import Profile from './Profile';
 import ToggleButton from '../../../reusable-ui/ToggleButton';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import ToastAdmin from './ToastAdmin';
+import OrderContext from '../../../../context/OrderContext';
 
 export default function NavbarRightSide({ username, onLogout }) {
   //State
-  const [isAdmin, setIsAdmin] = useState(false);
-
+  const { isAdmin, setIsAdmin } = useContext(OrderContext);
   //Comportement
   const handleAdminClick = () => {
     const newValue = !isAdmin;
