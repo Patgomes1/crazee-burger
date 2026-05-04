@@ -3,14 +3,17 @@ import { theme } from '../../../../theme';
 import Menu from './Menu';
 import Basket from './Basket';
 import Admin from './Admin/Admin';
+import { useContext } from 'react';
+import OrderContext from '../../../../context/OrderContext';
 
 export default function Main() {
+  const { isAdmin, setIsAdmin } = useContext(OrderContext);
   return (
     <MainStyled>
       {/* <Basket /> */}
       <div className="menu-and-admin">
         <Menu />
-        <Admin />
+        {isAdmin && <Admin />}
       </div>
     </MainStyled>
   );
