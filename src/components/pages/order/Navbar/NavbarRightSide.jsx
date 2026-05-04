@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { theme } from '../../../../theme';
 import Profile from './Profile';
 import ToggleButton from '../../../reusable-ui/ToggleButton';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { toast } from 'react-toastify';
 import ToastAdmin from './ToastAdmin';
 import OrderContext from '../../../../context/OrderContext';

@@ -12,7 +12,7 @@ export default function OrderPage() {
   const navigate = useNavigate();
   const location = useLocation(); // ← hook à ajouter
   const username = location.state?.username || 'Erreur utilisateur';
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   //Comportement
   const handleClick = () => {
