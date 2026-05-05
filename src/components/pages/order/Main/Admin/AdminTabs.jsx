@@ -4,9 +4,12 @@ import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { theme } from '../../../../../theme';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { MdModeEditOutline } from 'react-icons/md';
+import { useState } from 'react';
 
 export default function AdminTabs({ isCollapsed, setIsCollapsed }) {
   //State
+  const [isAddTabSelected, setIsAddTabSelected] = useState(true);
+  const [isEditTabSelected, setIsEditTabSelected] = useState(false);
 
   //Comportement
 
@@ -25,14 +28,24 @@ export default function AdminTabs({ isCollapsed, setIsCollapsed }) {
         className={isCollapsed ? 'is-active' : ''}
       />
       <Tab
-        className={''}
         Icon={<AiOutlinePlus className="icon" />}
         label={'Ajouter un produit'}
+        onClick={() => {
+          setIsAddTabSelected(true);
+          setIsEditTabSelected(false);
+          setIsCollapsed(false);
+        }}
+        className={isAddTabSelected ? 'is-active' : ''}
       />
       <Tab
-        className={''}
         Icon={<MdModeEditOutline className="icon" />}
         label={'Modifier un produit'}
+        onClick={() => {
+          setIsAddTabSelected(false);
+          setIsEditTabSelected(true);
+          setIsCollapsed(false);
+        }}
+        className={isEditTabSelected ? 'is-active' : ''}
       />
     </AdminTabsStyled>
   );
