@@ -13,6 +13,9 @@ export default function OrderPage() {
   const location = useLocation(); // ← hook à ajouter
   const username = location.state?.username || 'Erreur utilisateur';
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isAddTabSelected, setIsAddTabSelected] = useState(true);
+  const [isEditTabSelected, setIsEditTabSelected] = useState(false);
 
   //Comportement
   const handleClick = () => {
@@ -22,6 +25,12 @@ export default function OrderPage() {
   const orderContextValue = {
     isAdmin,
     setIsAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    isAddTabSelected,
+    setIsAddTabSelected,
+    isEditTabSelected,
+    setIsEditTabSelected,
   };
 
   //Affichage
