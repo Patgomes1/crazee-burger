@@ -6,7 +6,7 @@ export default function Tab({ className, Icon, label, onClick }) {
   return (
     <TabStyled className={className} onClick={onClick}>
       {Icon && Icon}
-      <span>{label}</span>
+      {label && <span className="label">{label}</span>}
     </TabStyled>
   );
 }
@@ -41,5 +41,8 @@ const TabStyled = styled.button`
 
   .icon {
     display: flex;
+  }
+  .label {
+    margin-left: 12px;
   }
 `;
