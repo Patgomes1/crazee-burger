@@ -19,6 +19,16 @@ export default function AdminTabs() {
   } = useContext(OrderContext);
 
   //Comportement
+  const selectTab = (tabSelected) => {
+    setIsCollapsed(false);
+    if (tabSelected === 'add') {
+      setIsAddTabSelected(true);
+      setIsEditTabSelected(false);
+    } else if (tabSelected === 'edit') {
+      setIsAddTabSelected(false);
+      setIsEditTabSelected(true);
+    }
+  };
 
   //Affichage
   return (
@@ -38,9 +48,7 @@ export default function AdminTabs() {
         Icon={<AiOutlinePlus className="icon" />}
         label={'Ajouter un produit'}
         onClick={() => {
-          setIsAddTabSelected(true);
-          setIsEditTabSelected(false);
-          setIsCollapsed(false);
+          selectTab('add');
         }}
         className={isAddTabSelected ? 'is-active' : ''}
       />
@@ -48,9 +56,7 @@ export default function AdminTabs() {
         Icon={<MdModeEditOutline className="icon" />}
         label={'Modifier un produit'}
         onClick={() => {
-          setIsAddTabSelected(false);
-          setIsEditTabSelected(true);
-          setIsCollapsed(false);
+          selectTab('edit');
         }}
         className={isEditTabSelected ? 'is-active' : ''}
       />
