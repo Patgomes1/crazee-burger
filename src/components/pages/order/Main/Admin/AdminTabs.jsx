@@ -1,15 +1,27 @@
-import React from 'react';
 import styled from 'styled-components';
 import Tab from '../../../../reusable-ui/Tab';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { theme } from '../../../../../theme';
 
-export default function AdminTabs({}) {
+export default function AdminTabs({ isCollapsed, setIsCollapsed }) {
+  //State
+
+  //Comportement
+
+  //Affichage
   return (
     <AdminTabsStyled>
       <Tab
-        Icon={<FiChevronDown className="icon" />}
-        //label={'Ajouter un produit'}
+        Icon={
+          isCollapsed ? (
+            <FiChevronUp className="icon" />
+          ) : (
+            <FiChevronDown className="icon" />
+          )
+        }
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        className={isCollapsed ? 'is-active' : ''}
       />
       <Tab
         className={'ajouter'}
@@ -35,5 +47,10 @@ const AdminTabsStyled = styled.div`
   }
   .modifier {
     background-color: lightblue;
+  }
+  .is-active {
+    background-color: ${theme.colors.background_dark};
+    border-color: ${theme.colors.background_dark};
+    color: ${theme.colors.white};
   }
 `;
