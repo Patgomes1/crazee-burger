@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import PrimaryButton from './PrimaryButton';
-import { formatPrice } from '../../utils/maths';
 import { theme } from '../../theme';
 
 //State
