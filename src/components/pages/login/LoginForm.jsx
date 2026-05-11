@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { theme } from '../../../theme';
@@ -14,7 +13,6 @@ export default function LoginForm({ onSuccess }) {
   //Comportement
   const handleSubmit = (event) => {
     event.preventDefault();
-    //setUsername("")
     onSuccess(username);
   };
 
@@ -55,11 +53,9 @@ const LoginFormStyled = styled.form`
   margin: 0px auto;
   height: 438.31px;
   margin-top: -100px;
-  //gap: 1rem;
   padding: 40px ${theme.spacing.lg};
   border-radius: ${theme.borderRadius.round};
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  //background: transparent;
   h1 {
     font-family: 'Amatic SC', cursive;
     font-size: ${theme.fonts.size.P5};
@@ -83,7 +79,7 @@ const LoginFormStyled = styled.form`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-left: 10px;
   }
   /* button:hover {

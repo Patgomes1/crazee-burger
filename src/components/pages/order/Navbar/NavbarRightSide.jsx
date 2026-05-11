@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { theme } from '../../../../theme';
 import Profile from './Profile';
 import ToggleButton from '../../../reusable-ui/ToggleButton';
-import { useState } from 'react';
+import { useContext } from 'react';
 import { toast } from 'react-toastify';
 import ToastAdmin from './ToastAdmin';
+import OrderContext from '../../../../context/OrderContext';
 
 export default function NavbarRightSide({ username, onLogout }) {
   //State
-  const [isAdmin, setIsAdmin] = useState(false);
-
+  const { isAdmin, setIsAdmin } = useContext(OrderContext);
   //Comportement
   const handleAdminClick = () => {
     const newValue = !isAdmin;
@@ -51,7 +51,7 @@ const NavbarRightSideStyled = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-size: ${theme.fonts.size.P0};
+  font-size: ${theme.fonts.size.SM};
   font-weight: ${theme.fonts.weights.regular};
   padding-right: 50px;
 

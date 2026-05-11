@@ -1,32 +1,52 @@
-import React from 'react';
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme } from '../../../theme';
 import Main from './Main/Main';
 import Navbar from './Navbar/Navbar';
+import OrderContext from '../../../context/OrderContext.jsx';
 
 export default function OrderPage() {
   //State
   const navigate = useNavigate();
   const location = useLocation(); // ← hook à ajouter
   const username = location.state?.username || 'Erreur utilisateur';
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isAddTabSelected, setIsAddTabSelected] = useState(true);
+  const [isEditTabSelected, setIsEditTabSelected] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState('add');
 
   //Comportement
   const handleClick = () => {
     navigate('/');
   };
 
+  const orderContextValue = {
+    isAdmin,
+    setIsAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    isAddTabSelected,
+    setIsAddTabSelected,
+    isEditTabSelected,
+    setIsEditTabSelected,
+    currentTabSelected,
+    setCurrentTabSelected,
+  };
+
   //Affichage
   return (
-    <OrderPageStyled>
-      <div className="container">
-        <div className="navbar-container">
-          <Navbar username={username} />
+    <OrderContext.Provider value={orderContextValue}>
+      <OrderPageStyled>
+        <div className="container">
+          <div className="navbar-container">
+            <Navbar username={username} />
+          </div>
+          <Main />
         </div>
-        <Main />
-      </div>
-    </OrderPageStyled>
+      </OrderPageStyled>
+    </OrderContext.Provider>
   );
 }
 
