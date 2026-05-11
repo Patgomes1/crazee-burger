@@ -15,6 +15,7 @@ export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAddTabSelected, setIsAddTabSelected] = useState(true);
   const [isEditTabSelected, setIsEditTabSelected] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState('add');
 
   //Comportement
   const handleClick = () => {
@@ -30,6 +31,8 @@ export default function OrderPage() {
     setIsAddTabSelected,
     isEditTabSelected,
     setIsEditTabSelected,
+    currentTabSelected,
+    setCurrentTabSelected,
   };
 
   //Affichage
