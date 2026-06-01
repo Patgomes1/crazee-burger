@@ -12,7 +12,7 @@ export default function AdminPanel() {
 
   return (
     <AdminPanelStyled className="panel-admin">
-      {tabSelected && tabSelected.label}
+      {tabSelected && tabSelected.Content}
     </AdminPanelStyled>
   );
 }
@@ -22,4 +22,5 @@ const AdminPanelStyled = styled.div`
   border: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.medium} inset;
   color: ${theme.colors.greySemiDark};
+  padding: 30px 5%;
 `;
