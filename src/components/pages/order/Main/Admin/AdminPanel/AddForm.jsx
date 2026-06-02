@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import OrderContext from '../../../../../../context/OrderContext';
+import { FiCheck } from 'react-icons/fi';
 
 const EMPTY_PRODUCT = {
   id: crypto.randomUUID(),
@@ -13,6 +14,7 @@ export default function AddForm() {
   //State
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const { handleAddProduct } = useContext(OrderContext);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const newProductToAdd = {
     ...newProduct,
@@ -24,6 +26,7 @@ export default function AddForm() {
     e.preventDefault();
     handleAddProduct(newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
+    displaySubmittedMessage();
   };
 
   const handleChange = (e) => {
@@ -32,6 +35,13 @@ export default function AddForm() {
       ...prevProduct,
       [name]: value,
     }));
+  };
+
+  const displaySubmittedMessage = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
   };
 
   //Affichage
@@ -48,14 +58,14 @@ export default function AddForm() {
         <input
           type="text"
           name="title"
-          placeholder="Nom"
+          placeholder="Nom du produit (ex: Super Burger)"
           value={newProduct.title}
           onChange={handleChange}
         />
         <input
           type="text"
           name="imageSource"
-          placeholder="Image URL"
+          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           value={newProduct.imageSource}
           onChange={handleChange}
         />
@@ -67,7 +77,15 @@ export default function AddForm() {
           onChange={handleChange}
         />
       </div>
-      <button className="submit-button">Ajouter</button>
+      <div className="submit">
+        <button className="submit-button">Ajouter</button>
+        {isSubmitted && (
+          <div className="submit-message">
+            <FiCheck />
+            <span>Ajouté avec succès !</span>
+          </div>
+        )}
+      </div>
     </AddFormStyled>
   );
 }
@@ -100,9 +118,17 @@ const AddFormStyled = styled.form`
     display: grid;
   }
 
-  .submit-button {
-    background-color: lightgreen;
+  .submit {
     grid-area: 4 / -2 / -1 / -1;
-    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .submit-button {
+      background-color: lightgreen;
+      width: 50%;
+    }
+    .submit-message {
+      color: green;
+    }
   }
 `;
