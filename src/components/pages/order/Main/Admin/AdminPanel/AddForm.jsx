@@ -2,21 +2,37 @@ import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import OrderContext from '../../../../../../context/OrderContext';
 
+const EMPTY_PRODUCT = {
+  id: new Date().getTime(),
+  title: '',
+  imageSource:
+    'https://burgeraddict.fr/wp-content/uploads/2024/09/MSG-Smash-Burger-FT-RECIPE0124-d9682401f3554ef683e24311abdf342b.jpg',
+  price: 0,
+};
+
 export default function AddForm() {
   //State
-  const [newProduct, setNewProduct] = useState({
-    id: new Date().getTime(),
-    title: '',
-    imageSource:
-      'https://burgeraddict.fr/wp-content/uploads/2024/09/MSG-Smash-Burger-FT-RECIPE0124-d9682401f3554ef683e24311abdf342b.jpg',
-    price: 0,
-  });
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const { handleAddProduct } = useContext(OrderContext);
+
+  const newProductToAdd = {
+    ...newProduct,
+    id: new Date().getTime(),
+  };
 
   //Comportement
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAddProduct(newProduct);
+    handleAddProduct(newProductToAdd);
+    setNewProduct(EMPTY_PRODUCT);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewProduct((prevProduct) => ({
+      ...prevProduct,
+      [name]: value,
+    }));
   };
 
   //Affichage
@@ -26,27 +42,24 @@ export default function AddForm() {
       <div className="input-fields">
         <input
           type="text"
+          name="title"
           placeholder="Nom"
           value={newProduct.title}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, title: e.target.value })
-          }
+          onChange={handleChange}
         />
         <input
           type="text"
+          name="imageSource"
           placeholder="Image URL"
           value={newProduct.imageSource}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, imageSource: e.target.value })
-          }
+          onChange={handleChange}
         />
         <input
           type="text"
+          name="price"
           placeholder="Prix"
           value={newProduct.price ? newProduct.price : ''}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, price: e.target.value })
-          }
+          onChange={handleChange}
         />
       </div>
       <button className="submit-button">Ajouter</button>
