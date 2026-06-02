@@ -5,6 +5,7 @@ import { theme } from '../../../theme';
 import Main from './Main/Main';
 import Navbar from './Navbar/Navbar';
 import OrderContext from '../../../context/OrderContext.jsx';
+import { fakeMenu } from '../../../fakeData/fakeMenu.jsx';
 
 export default function OrderPage() {
   //State
@@ -16,10 +17,17 @@ export default function OrderPage() {
   const [isAddTabSelected, setIsAddTabSelected] = useState(true);
   const [isEditTabSelected, setIsEditTabSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState('add');
+  const [menu, setMenu] = useState(fakeMenu.LARGE);
 
   //Comportement
   const handleClick = () => {
     navigate('/');
+  };
+
+  const handleAddProduct = (newProduct) => {
+    const copyMenu = [...menu];
+    const UpdatedMenu = [newProduct, ...copyMenu];
+    setMenu(UpdatedMenu);
   };
 
   const orderContextValue = {
@@ -33,6 +41,8 @@ export default function OrderPage() {
     setIsEditTabSelected,
     currentTabSelected,
     setCurrentTabSelected,
+    menu,
+    handleAddProduct,
   };
 
   //Affichage

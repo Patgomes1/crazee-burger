@@ -1,20 +1,14 @@
 import styled from 'styled-components';
 import Card from '../../../reusable-ui/Card';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { fakeMenu } from '../../../../fakeData/fakeMenu';
 import { theme } from '../../../../theme';
 import { formatPrice } from '../../../../utils/maths';
+import OrderContext from '../../../../context/OrderContext';
 
 export default function Menu() {
   //State
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
-  const newProduct = {
-    id: Date.now(),
-    title: 'Burger',
-    imageSource:
-      'https://burgeraddict.fr/wp-content/uploads/2024/09/MSG-Smash-Burger-FT-RECIPE0124-d9682401f3554ef683e24311abdf342b.jpg',
-    price: 5.8,
-  };
+  const { menu, setMenu } = useContext(OrderContext);
 
   //Comportement
   const handleAddProduct = () => {
@@ -26,7 +20,6 @@ export default function Menu() {
   //Affichage
   return (
     <MenuStyled className="menu">
-      <button onClick={handleAddProduct}>Ajouter</button>;
       {menu.map(({ id, title, imageSource, price }) => {
         return (
           <Card
