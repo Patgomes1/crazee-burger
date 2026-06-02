@@ -1,24 +1,17 @@
 import { useContext, useState } from 'react';
 import styled from 'styled-components';
-import TextInput from '../../../../../reusable-ui/TextInput';
 import OrderContext from '../../../../../../context/OrderContext';
 
 export default function AddForm() {
   //State
-  const [formData, setFormData] = useState({
+  const [newProduct, setNewProduct] = useState({
+    id: new Date().getTime(),
     title: '',
-    imageSource: '',
+    imageSource:
+      'https://burgeraddict.fr/wp-content/uploads/2024/09/MSG-Smash-Burger-FT-RECIPE0124-d9682401f3554ef683e24311abdf342b.jpg',
     price: 0,
   });
   const { handleAddProduct } = useContext(OrderContext);
-
-  const newProduct = {
-    id: Date.now(),
-    title: 'Nouveau produit',
-    imageSource:
-      'https://burgeraddict.fr/wp-content/uploads/2024/09/MSG-Smash-Burger-FT-RECIPE0124-d9682401f3554ef683e24311abdf342b.jpg',
-    price: 9.99,
-  };
 
   //Comportement
   const handleSubmit = (e) => {
@@ -29,27 +22,31 @@ export default function AddForm() {
   //Affichage
   return (
     <AddFormStyled className="add-form" onSubmit={handleSubmit}>
-      <div className="image-preview">Image Preview</div>
+      <div className="image-preview">Aucune image</div>
       <div className="input-fields">
         <input
           type="text"
           placeholder="Nom"
-          value={formData.title}
-          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+          value={newProduct.title}
+          onChange={(e) =>
+            setNewProduct({ ...newProduct, title: e.target.value })
+          }
         />
         <input
           type="text"
           placeholder="Image URL"
-          value={formData.imageSource}
+          value={newProduct.imageSource}
           onChange={(e) =>
-            setFormData({ ...formData, imageSource: e.target.value })
+            setNewProduct({ ...newProduct, imageSource: e.target.value })
           }
         />
         <input
           type="text"
           placeholder="Prix"
-          value={formData.price}
-          onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+          value={newProduct.price ? newProduct.price : ''}
+          onChange={(e) =>
+            setNewProduct({ ...newProduct, price: e.target.value })
+          }
         />
       </div>
       <button className="submit-button">Ajouter</button>

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Card from '../../../reusable-ui/Card';
-import { useContext, useState } from 'react';
-import { fakeMenu } from '../../../../fakeData/fakeMenu';
+import { useContext } from 'react';
 import { theme } from '../../../../theme';
 import { formatPrice } from '../../../../utils/maths';
 import OrderContext from '../../../../context/OrderContext';
@@ -11,11 +10,6 @@ export default function Menu() {
   const { menu, setMenu } = useContext(OrderContext);
 
   //Comportement
-  const handleAddProduct = () => {
-    const copyMenu = [...menu];
-    const UpdatedMenu = [newProduct, ...copyMenu];
-    setMenu(UpdatedMenu);
-  };
 
   //Affichage
   return (
