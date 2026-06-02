@@ -3,10 +3,9 @@ import styled from 'styled-components';
 import OrderContext from '../../../../../../context/OrderContext';
 
 const EMPTY_PRODUCT = {
-  id: new Date().getTime(),
+  id: crypto.randomUUID(),
   title: '',
-  imageSource:
-    'https://burgeraddict.fr/wp-content/uploads/2024/09/MSG-Smash-Burger-FT-RECIPE0124-d9682401f3554ef683e24311abdf342b.jpg',
+  imageSource: '',
   price: 0,
 };
 
@@ -17,7 +16,7 @@ export default function AddForm() {
 
   const newProductToAdd = {
     ...newProduct,
-    id: new Date().getTime(),
+    id: crypto.randomUUID(),
   };
 
   //Comportement
@@ -38,7 +37,9 @@ export default function AddForm() {
   //Affichage
   return (
     <AddFormStyled className="add-form" onSubmit={handleSubmit}>
-      <div className="image-preview">Aucune image</div>
+      <div className="image-preview">
+        <img src={newProduct.imageSource} alt={newProduct.title} />
+      </div>
       <div className="input-fields">
         <input
           type="text"
@@ -77,7 +78,7 @@ const AddFormStyled = styled.form`
   grid-template-rows: repeat(4, 1fr);
 
   .image-preview {
-    background-color: lightgray;
+    background-color: blue;
     grid-area: 1 / 1 / 4 / 2;
   }
 
