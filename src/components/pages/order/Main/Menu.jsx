@@ -12,6 +12,9 @@ export default function Menu() {
   const { menu, setMenu, isAdmin } = useContext(OrderContext);
 
   //Comportement
+  const handleClick = (event) => {
+    alert('Vous avez cliqué sur un produit du menu !');
+  };
 
   //Affichage
   return (
@@ -24,6 +27,7 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
             leftDescription={formatPrice(price)}
             isDeleteButtonVisible={isAdmin}
+            onClick={handleClick}
           />
         );
       })}
