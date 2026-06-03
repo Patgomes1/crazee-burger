@@ -35,6 +35,10 @@ export default function OrderPage() {
     setMenu(updatedMenu);
   };
 
+  const resetMenu = () => {
+    setMenu(fakeMenu.LARGE);
+  };
+
   const orderContextValue = {
     isAdmin,
     setIsAdmin,
@@ -49,6 +53,7 @@ export default function OrderPage() {
     menu,
     handleAddProduct,
     handleDelete,
+    resetMenu,
   };
 
   //Affichage

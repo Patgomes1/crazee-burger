@@ -1,7 +1,19 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
+import OrderContext from '../../../../../context/OrderContext';
 
 export default function EmptyMenuAdmin() {
-  return <EmptyMenuAdminStyled>EmptyMenuAdmin</EmptyMenuAdminStyled>;
+  //State
+  const { resetMenu } = useContext(OrderContext);
+
+  //Comportement
+
+  //Affichage
+  return (
+    <EmptyMenuAdminStyled>
+      <button onClick={resetMenu}>Ajouter un produit</button>
+    </EmptyMenuAdminStyled>
+  );
 }
 
 const EmptyMenuAdminStyled = styled.div`
