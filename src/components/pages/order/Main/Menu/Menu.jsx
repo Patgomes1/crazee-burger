@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-import Card from '../../../reusable-ui/Card';
+import Card from '../../../../reusable-ui/Card';
 import { useContext } from 'react';
-import { theme } from '../../../../theme';
-import { formatPrice } from '../../../../utils/maths';
-import OrderContext from '../../../../context/OrderContext';
+import { theme } from '../../../../../theme';
+import { formatPrice } from '../../../../../utils/maths';
+import OrderContext from '../../../../../context/OrderContext';
+import EmptyMenuAdmin from './EmptyMenuAdmin';
+import EmptyMenuClient from './EmptyMenuClient';
 
-const IMAGE_BY_DEFAULT = 'public/images/coming-soon.png';
+const IMAGE_BY_DEFAULT = '/images/coming-soon.png';
 
 export default function Menu() {
   //State
@@ -16,6 +18,8 @@ export default function Menu() {
   //Affichage
   return (
     <MenuStyled className="menu">
+      {menu.length === 0 && isAdmin && <EmptyMenuAdmin />}
+      {menu.length === 0 && !isAdmin && <EmptyMenuClient />}
       {menu.map(({ id, title, imageSource, price }) => {
         return (
           <Card
