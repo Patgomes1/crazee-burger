@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import OrderContext from '../../../../../context/OrderContext';
+import PrimaryButton from '../../../../reusable-ui/PrimaryButton';
+import { theme } from '../../../../../theme';
 
 export default function EmptyMenuAdmin() {
   //State
@@ -11,7 +13,14 @@ export default function EmptyMenuAdmin() {
   //Affichage
   return (
     <EmptyMenuAdminStyled>
-      <button onClick={resetMenu}>Ajouter un produit</button>
+      <div className="message">
+        <b>Le menu est vide ?</b>
+        <p>Cliquez ci-dessous pour le réinitialiser.</p>
+      </div>
+      <PrimaryButton
+        label={'Générer de nouveaux produits'}
+        onClick={resetMenu}
+      />
     </EmptyMenuAdminStyled>
   );
 }
@@ -20,7 +29,17 @@ const EmptyMenuAdminStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   height: 100%;
-  font-size: 1.5rem;
   color: gray;
+
+  .message {
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .add-product-button {
+    font-size: 1rem;
+  }
 `;
