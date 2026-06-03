@@ -9,12 +9,9 @@ const IMAGE_BY_DEFAULT = 'public/images/coming-soon.png';
 
 export default function Menu() {
   //State
-  const { menu, setMenu, isAdmin } = useContext(OrderContext);
+  const { menu, isAdmin, handleDelete } = useContext(OrderContext);
 
   //Comportement
-  const handleClick = (event) => {
-    alert('Vous avez cliqué sur un produit du menu !');
-  };
 
   //Affichage
   return (
@@ -27,7 +24,7 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
             leftDescription={formatPrice(price)}
             isDeleteButtonVisible={isAdmin}
-            onClick={handleClick}
+            onDelete={() => handleDelete(id)}
           />
         );
       })}

@@ -29,6 +29,11 @@ export default function OrderPage() {
     const UpdatedMenu = [newProduct, ...copyMenu];
     setMenu(UpdatedMenu);
   };
+  const handleDelete = (id) => {
+    const copyMenu = [...menu];
+    const updatedMenu = copyMenu.filter((product) => product.id !== id);
+    setMenu(updatedMenu);
+  };
 
   const orderContextValue = {
     isAdmin,
@@ -43,6 +48,7 @@ export default function OrderPage() {
     setCurrentTabSelected,
     menu,
     handleAddProduct,
+    handleDelete,
   };
 
   //Affichage
