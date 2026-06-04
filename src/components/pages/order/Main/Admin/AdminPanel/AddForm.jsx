@@ -51,9 +51,13 @@ export default function AddForm() {
     <AddFormStyled className="add-form" onSubmit={handleSubmit}>
       <div className="image-preview">
         {newProduct.imageSource ? (
-          <img src={newProduct.imageSource} alt={newProduct.title} />
+          <img
+            className="image"
+            src={newProduct.imageSource}
+            alt={newProduct.title}
+          />
         ) : (
-          <div>Aucune image</div>
+          <div className="no-image">Aucune image</div>
         )}
       </div>
       <div className="input-fields">
@@ -97,7 +101,7 @@ export default function AddForm() {
 }
 
 const AddFormStyled = styled.form`
-  border: 1px solid purple;
+  //border: 1px dashed purple;
   height: 100%;
   width: 70%;
 
@@ -110,7 +114,19 @@ const AddFormStyled = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
-    img {
+    margin-right: 20px;
+    .no-image {
+      width: 100%;
+      height: 100%;
+      border: 1px solid ${theme.colors.greyLight};
+      border-radius: ${theme.borderRadius.round};
+      font-size: ${theme.fonts.size.P0};
+      font-weight: ${theme.fonts.weights.regular};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .image {
       width: 100%;
       height: 100%;
       object-fit: contain;
