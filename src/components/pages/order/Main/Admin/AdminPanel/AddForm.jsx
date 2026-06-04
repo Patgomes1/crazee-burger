@@ -4,6 +4,10 @@ import OrderContext from '../../../../../../context/OrderContext';
 import { FiCheck } from 'react-icons/fi';
 import PrimaryButton from '../../../../../reusable-ui/PrimaryButton';
 import { theme } from '../../../../../../theme';
+import TextInput from '../../../../../reusable-ui/TextInput';
+import { FaHamburger } from 'react-icons/fa';
+import { BsFillCameraFill } from 'react-icons/bs';
+import { MdOutlineEuro } from 'react-icons/md';
 
 const EMPTY_PRODUCT = {
   id: crypto.randomUUID(),
@@ -61,26 +65,34 @@ export default function AddForm() {
         )}
       </div>
       <div className="input-fields">
-        <input
+        <TextInput
+          className="input-with-icon"
           type="text"
           name="title"
-          placeholder="Nom du produit (ex: Super Burger)"
           value={newProduct.title}
           onChange={handleChange}
+          Icon={<FaHamburger className="icon" />}
+          placeholder={'Nom du produit (ex: Super Burger)'}
         />
-        <input
+        <TextInput
+          className="input-with-icon"
           type="text"
           name="imageSource"
-          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           value={newProduct.imageSource}
           onChange={handleChange}
+          Icon={<BsFillCameraFill className="icon" />}
+          placeholder={
+            "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
+          }
         />
-        <input
+        <TextInput
+          className="input-with-icon"
           type="text"
           name="price"
-          placeholder="Prix"
           value={newProduct.price ? newProduct.price : ''}
           onChange={handleChange}
+          Icon={<MdOutlineEuro className="icon" />}
+          placeholder={'Prix'}
         />
       </div>
       <div className="submit">
@@ -135,9 +147,23 @@ const AddFormStyled = styled.form`
   }
 
   .input-fields {
-    background-color: lightblue;
+    //background-color: lightblue;
     grid-area: 1 / 2 / 4 / -2;
     display: grid;
+
+    .input-with-icon {
+      background-color: ${theme.colors.background_white};
+      width: 645px;
+      height: 35px;
+      padding: 8px 16px 8px 24px;
+      gap: 13px;
+      margin: 0;
+
+      &::placeholder {
+        background: ${theme.colors.background_white};
+        color: ${theme.colors.greyMedium};
+      }
+    }
   }
 
   .submit {
