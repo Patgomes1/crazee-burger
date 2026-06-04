@@ -169,7 +169,10 @@ const AddFormStyled = styled.form`
       }
     }
     .submit-message {
-      color: green;
+      color: ${theme.colors.success};
+      font-size: ${theme.fonts.size.SM};
+      font-weight: ${theme.fonts.weights.regular};
+      margin-left: 20px;
     }
   }
 `;
