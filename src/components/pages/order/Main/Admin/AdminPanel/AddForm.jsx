@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import OrderContext from '../../../../../../context/OrderContext';
 import { FiCheck } from 'react-icons/fi';
+import PrimaryButton from '../../../../../reusable-ui/PrimaryButton';
+import { theme } from '../../../../../../theme';
 
 const EMPTY_PRODUCT = {
   id: crypto.randomUUID(),
@@ -78,7 +80,11 @@ export default function AddForm() {
         />
       </div>
       <div className="submit">
-        <button className="submit-button">Ajouter</button>
+        <PrimaryButton
+          className="submit-button"
+          label={'Ajouter un nouveau produit au menu'}
+          onClick={handleSubmit}
+        />
         {isSubmitted && (
           <div className="submit-message">
             <FiCheck />
@@ -124,8 +130,27 @@ const AddFormStyled = styled.form`
     flex-direction: row;
     align-items: center;
     .submit-button {
-      background-color: lightgreen;
+      background-color: ${theme.colors.success};
+      color: ${theme.colors.white};
+      border: 1px solid ${theme.colors.success};
       width: 50%;
+
+      &:hover:not(:disabled) {
+        background-color: ${theme.colors.white};
+        color: ${theme.colors.success};
+        border: 1px solid ${theme.colors.success};
+      }
+
+      &:active:not(:disabled) {
+        background-color: ${theme.colors.white};
+        color: ${theme.colors.success};
+        border: 1px solid ${theme.colors.success};
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
     }
     .submit-message {
       color: green;
