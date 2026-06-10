@@ -71,7 +71,7 @@ export default function AddForm() {
           name="title"
           value={newProduct.title}
           onChange={handleChange}
-          Icon={<FaHamburger className="icon" />}
+          Icon={<FaHamburger />}
           placeholder={'Nom du produit (ex: Super Burger)'}
         />
         <TextInput
@@ -80,7 +80,7 @@ export default function AddForm() {
           name="imageSource"
           value={newProduct.imageSource}
           onChange={handleChange}
-          Icon={<BsFillCameraFill className="icon" />}
+          Icon={<BsFillCameraFill />}
           placeholder={
             "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           }
@@ -91,7 +91,7 @@ export default function AddForm() {
           name="price"
           value={newProduct.price ? newProduct.price : ''}
           onChange={handleChange}
-          Icon={<MdOutlineEuro className="icon" />}
+          Icon={<MdOutlineEuro />}
           placeholder={'Prix'}
         />
       </div>
@@ -120,13 +120,15 @@ const AddFormStyled = styled.form`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 8px;
 
   .image-preview {
     grid-area: 1 / 1 / 4 / 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 20px;
+
     .no-image {
       width: 100%;
       height: 100%;
@@ -137,6 +139,7 @@ const AddFormStyled = styled.form`
       display: flex;
       justify-content: center;
       align-items: center;
+      line-height: 1.5;
     }
     .image {
       width: 100%;
@@ -155,9 +158,8 @@ const AddFormStyled = styled.form`
       background-color: ${theme.colors.background_white};
       width: 645px;
       height: 35px;
-      padding: 8px 16px 8px 24px;
-      gap: 13px;
       margin: 0;
+      padding-left: 0px;
 
       &::placeholder {
         background: ${theme.colors.background_white};
