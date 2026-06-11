@@ -14,10 +14,11 @@ export default function EmptyMenuAdmin() {
   return (
     <EmptyMenuAdminStyled>
       <div className="message">
-        <b>Le menu est vide ?</b>
+        <strong>Le menu est vide ?</strong>
         <p>Cliquez ci-dessous pour le réinitialiser.</p>
       </div>
       <PrimaryButton
+        className={'add-product-button'}
         label={'Générer de nouveaux produits'}
         onClick={resetMenu}
       />
@@ -31,15 +32,20 @@ const EmptyMenuAdminStyled = styled.div`
   justify-content: center;
   flex-direction: column;
   height: 100%;
-  color: gray;
+  color: ${theme.colors.greyBlue};
 
   .message {
     font-family: 'Amatic SC', cursive;
     text-align: center;
-    font-size: 2rem;
+    font-size: ${theme.fonts.size.P4};
   }
 
   .add-product-button {
-    font-size: 1rem;
+    font-size: ${theme.fonts.size.XS};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 224px;
+    height: 50px;
   }
 `;

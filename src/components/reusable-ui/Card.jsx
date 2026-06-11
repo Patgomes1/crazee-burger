@@ -133,10 +133,10 @@ const CardStyled = styled.div`
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        font-size: ${theme.fonts.size.P1};
 
         .primary-button {
           font-size: ${theme.fonts.size.XS};
+          font-weight: ${theme.fonts.weights.bold};
           cursor: pointer;
           padding: 12px;
         }
