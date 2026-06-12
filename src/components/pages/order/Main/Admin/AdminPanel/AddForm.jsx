@@ -66,16 +66,15 @@ export default function AddForm() {
       </div>
       <div className="input-fields">
         <TextInput
-          className="input-with-icon"
           type="text"
           name="title"
           value={newProduct.title}
           onChange={handleChange}
           Icon={<FaHamburger />}
           placeholder={'Nom du produit (ex: Super Burger)'}
+          version="minimalist"
         />
         <TextInput
-          className="input-with-icon"
           type="text"
           name="imageSource"
           value={newProduct.imageSource}
@@ -84,15 +83,16 @@ export default function AddForm() {
           placeholder={
             "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           }
+          version="minimalist"
         />
         <TextInput
-          className="input-with-icon"
           type="text"
           name="price"
           value={newProduct.price ? newProduct.price : ''}
           onChange={handleChange}
           Icon={<MdOutlineEuro />}
           placeholder={'Prix'}
+          version="minimalist"
         />
       </div>
       <div className="submit">
@@ -132,14 +132,15 @@ const AddFormStyled = styled.form`
     .no-image {
       width: 100%;
       height: 100%;
-      border: 1px solid ${theme.colors.greyLight};
-      border-radius: ${theme.borderRadius.round};
-      font-size: ${theme.fonts.size.P0};
-      font-weight: ${theme.fonts.weights.regular};
       display: flex;
       justify-content: center;
       align-items: center;
+      border: 1px solid ${theme.colors.greyLight};
       line-height: 1.5;
+      color: ${theme.colors.greySemiDark};
+      border-radius: ${theme.borderRadius.round};
+      font-size: ${theme.fonts.size.P0};
+      font-weight: ${theme.fonts.weights.regular};
     }
     .image {
       width: 100%;
@@ -153,8 +154,9 @@ const AddFormStyled = styled.form`
     //background-color: lightblue;
     grid-area: 1 / 2 / 4 / -2;
     display: grid;
+    grid-row-gap: 8px;
 
-    .input-with-icon {
+    /* .input-with-icon {
       background-color: ${theme.colors.background_white};
       width: 645px;
       height: 35px;
@@ -165,7 +167,7 @@ const AddFormStyled = styled.form`
         background: ${theme.colors.background_white};
         color: ${theme.colors.greyMedium};
       }
-    }
+    } */
   }
 
   .submit {

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { theme } from '../../../theme';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 import TextInput from '../../reusable-ui/TextInput';
-import { FaRegCircleUser } from 'react-icons/fa6';
 import PrimaryButton from '../../reusable-ui/PrimaryButton';
 import { BsPersonCircle } from 'react-icons/bs';
 
