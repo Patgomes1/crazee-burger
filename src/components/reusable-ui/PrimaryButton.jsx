@@ -1,9 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { theme } from '../../theme';
 
-export default function PrimaryButton({ className, label, Icon, onClick }) {
+export default function PrimaryButton({
+  className,
+  label,
+  Icon,
+  onClick,
+  version = 'normal',
+}) {
   return (
-    <PrimaryButtonStyled className={className} onClick={onClick}>
+    <PrimaryButtonStyled
+      className={className}
+      onClick={onClick}
+      version={version}
+    >
       <span>{label}</span>
       {/* <div className="icon">{Icon && Icon}</div> */}
       {Icon && <div className="icon">{Icon}</div>}
@@ -20,7 +30,16 @@ const PrimaryButtonStyled = styled.button`
   white-space: nowrap;
   text-decoration: none;
   line-height: 1;
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+  }
+  ${({ version }) => extraStyle[version]}
+`;
 
+const extraStyleNormal = css`
   padding: 18px 24px;
   border-radius: ${theme.borderRadius.round};
   font-size: ${theme.fonts.size.SM};
@@ -46,26 +65,37 @@ const PrimaryButtonStyled = styled.button`
     cursor: not-allowed;
     opacity: 0.5;
   }
+`;
 
-  .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
+const extraStyleMinimalist = css`
+  background-color: ${theme.colors.success};
+  color: ${theme.colors.white};
+  border: 1px solid ${theme.colors.success};
+  width: 275px;
+  height: 34px;
+  font-size: ${theme.fonts.size.XS};
+  border-radius: ${theme.borderRadius.round};
+  font-weight: ${theme.fonts.weights.bold};
+
+  &:hover:not(:disabled) {
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.success};
+    border: 1px solid ${theme.colors.success};
   }
 
-  /*   .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    margin-left: 10px;
-  } */
+  &:active:not(:disabled) {
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.success};
+    border: 1px solid ${theme.colors.success};
+  }
 
-  /*     height: 53px;
-    background-color: ${theme.colors.primary_burger};
-    padding: 16px 8px;
-    gap: 12.8px;
-    border-radius: 5px;
-    margin: 0px 32px 40px 32px; */
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;
+
+const extraStyle = {
+  normal: extraStyleNormal,
+  minimalist: extraStyleMinimalist,
+};

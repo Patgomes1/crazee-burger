@@ -100,6 +100,7 @@ export default function AddForm() {
           className="submit-button"
           label={'Ajouter un nouveau produit au menu'}
           onClick={handleSubmit}
+          version="minimalist"
         />
         {isSubmitted && (
           <div className="submit-message">
@@ -113,7 +114,6 @@ export default function AddForm() {
 }
 
 const AddFormStyled = styled.form`
-  //border: 1px dashed purple;
   height: 100%;
   width: 70%;
 
@@ -151,23 +151,9 @@ const AddFormStyled = styled.form`
   }
 
   .input-fields {
-    //background-color: lightblue;
     grid-area: 1 / 2 / 4 / -2;
     display: grid;
     grid-row-gap: 8px;
-
-    /* .input-with-icon {
-      background-color: ${theme.colors.background_white};
-      width: 645px;
-      height: 35px;
-      margin: 0;
-      padding-left: 0px;
-
-      &::placeholder {
-        background: ${theme.colors.background_white};
-        color: ${theme.colors.greyMedium};
-      }
-    } */
   }
 
   .submit {
@@ -175,29 +161,7 @@ const AddFormStyled = styled.form`
     display: flex;
     flex-direction: row;
     align-items: center;
-    .submit-button {
-      background-color: ${theme.colors.success};
-      color: ${theme.colors.white};
-      border: 1px solid ${theme.colors.success};
-      width: 50%;
 
-      &:hover:not(:disabled) {
-        background-color: ${theme.colors.white};
-        color: ${theme.colors.success};
-        border: 1px solid ${theme.colors.success};
-      }
-
-      &:active:not(:disabled) {
-        background-color: ${theme.colors.white};
-        color: ${theme.colors.success};
-        border: 1px solid ${theme.colors.success};
-      }
-
-      &:disabled {
-        cursor: not-allowed;
-        opacity: 0.5;
-      }
-    }
     .submit-message {
       color: ${theme.colors.success};
       font-size: ${theme.fonts.size.SM};
