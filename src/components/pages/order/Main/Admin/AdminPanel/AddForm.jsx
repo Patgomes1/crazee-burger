@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import OrderContext from '../../../../../../context/OrderContext';
 import { FiCheck } from 'react-icons/fi';
-import PrimaryButton from '../../../../../reusable-ui/PrimaryButton';
+import Button from '../../../../../reusable-ui/Button';
 import { theme } from '../../../../../../theme';
 import TextInput from '../../../../../reusable-ui/TextInput';
 import { FaHamburger } from 'react-icons/fa';
@@ -96,11 +96,11 @@ export default function AddForm() {
         />
       </div>
       <div className="submit">
-        <PrimaryButton
+        <Button
           className="submit-button"
           label={'Ajouter un nouveau produit au menu'}
           onClick={handleSubmit}
-          version="minimalist"
+          version="success"
         />
         {isSubmitted && (
           <div className="submit-message">

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import OrderContext from '../../../../../context/OrderContext';
-import PrimaryButton from '../../../../reusable-ui/PrimaryButton';
+import Button from '../../../../reusable-ui/Button';
 import { theme } from '../../../../../theme';
 
 export default function EmptyMenuAdmin() {
@@ -17,7 +17,7 @@ export default function EmptyMenuAdmin() {
         <strong>Le menu est vide ?</strong>
         <p>Cliquez ci-dessous pour le réinitialiser.</p>
       </div>
-      <PrimaryButton
+      <Button
         className={'add-product-button'}
         label={'Générer de nouveaux produits'}
         onClick={resetMenu}

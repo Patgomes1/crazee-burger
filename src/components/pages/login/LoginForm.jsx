@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { theme } from '../../../theme';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 import TextInput from '../../reusable-ui/TextInput';
-import PrimaryButton from '../../reusable-ui/PrimaryButton';
+import Button from '../../reusable-ui/Button';
 import { BsPersonCircle } from 'react-icons/bs';
 
 export default function LoginForm({ onSuccess }) {
@@ -33,7 +33,7 @@ export default function LoginForm({ onSuccess }) {
         placeholder={'Entrez votre prénom'}
         required
       />
-      <PrimaryButton
+      <Button
         label={'Accéder à votre espace'}
         Icon={<IoChevronForwardOutline />}
       />

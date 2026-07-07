@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { theme } from '../../theme';
 
-export default function PrimaryButton({
+export default function Button({
   className,
   label,
   Icon,
@@ -9,20 +9,21 @@ export default function PrimaryButton({
   version = 'normal',
 }) {
   return (
-    <PrimaryButtonStyled
-      className={className}
-      onClick={onClick}
-      version={version}
-    >
+    <ButtonStyled className={className} onClick={onClick} version={version}>
       <span>{label}</span>
       {/* <div className="icon">{Icon && Icon}</div> */}
       {Icon && <div className="icon">{Icon}</div>}
-    </PrimaryButtonStyled>
+    </ButtonStyled>
   );
 }
 
-const PrimaryButtonStyled = styled.button`
+const ButtonStyled = styled.button`
+  ${({ version }) => extraStyle[version]}
+`;
+
+const extraStylePrimary = css`
   width: 100%;
+  border: 1px solid red;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -30,16 +31,7 @@ const PrimaryButtonStyled = styled.button`
   white-space: nowrap;
   text-decoration: none;
   line-height: 1;
-  .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-  }
-  ${({ version }) => extraStyle[version]}
-`;
 
-const extraStyleNormal = css`
   padding: 18px 24px;
   border-radius: ${theme.borderRadius.round};
   font-size: ${theme.fonts.size.SM};
@@ -65,16 +57,23 @@ const extraStyleNormal = css`
     cursor: not-allowed;
     opacity: 0.5;
   }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+  }
 `;
 
-const extraStyleMinimalist = css`
-  background-color: ${theme.colors.success};
+const extraStyleSuccess = css`
+  cursor: pointer;
   color: ${theme.colors.white};
+  background-color: ${theme.colors.success};
   border: 1px solid ${theme.colors.success};
-  width: 275px;
-  height: 34px;
-  font-size: ${theme.fonts.size.XS};
   border-radius: ${theme.borderRadius.round};
+  height: 34px;
+  width: 275px;
+  font-size: ${theme.fonts.size.XS};
   font-weight: ${theme.fonts.weights.bold};
 
   &:hover:not(:disabled) {
@@ -96,6 +95,6 @@ const extraStyleMinimalist = css`
 `;
 
 const extraStyle = {
-  normal: extraStyleNormal,
-  minimalist: extraStyleMinimalist,
+  normal: extraStylePrimary,
+  success: extraStyleSuccess,
 };
