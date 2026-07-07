@@ -9,7 +9,7 @@ import { FaHamburger } from 'react-icons/fa';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { MdOutlineEuro } from 'react-icons/md';
 
-const EMPTY_PRODUCT = {
+export const EMPTY_PRODUCT = {
   id: crypto.randomUUID(),
   title: '',
   imageSource: '',
@@ -18,8 +18,9 @@ const EMPTY_PRODUCT = {
 
 export default function AddForm() {
   //State
-  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
-  const { handleAddProduct } = useContext(OrderContext);
+  //const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const { handleAddProduct, newProduct, setNewProduct } =
+    useContext(OrderContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const newProductToAdd = {

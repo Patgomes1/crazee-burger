@@ -6,6 +6,7 @@ import Main from './Main/Main';
 import Navbar from './Navbar/Navbar';
 import OrderContext from '../../../context/OrderContext.jsx';
 import { fakeMenu } from '../../../fakeData/fakeMenu.jsx';
+import { EMPTY_PRODUCT } from './Main/Admin/AdminPanel/AddForm.jsx';
 
 export default function OrderPage() {
   //State
@@ -18,6 +19,7 @@ export default function OrderPage() {
   const [isEditTabSelected, setIsEditTabSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState('add');
   const [menu, setMenu] = useState(fakeMenu.LARGE);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   //Comportement
   const handleClick = () => {
@@ -54,6 +56,8 @@ export default function OrderPage() {
     handleAddProduct,
     handleDelete,
     resetMenu,
+    newProduct,
+    setNewProduct,
   };
 
   //Affichage
