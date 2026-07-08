@@ -8,6 +8,7 @@ import TextInput from '../../../../../reusable-ui/TextInput';
 import { FaHamburger } from 'react-icons/fa';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { MdOutlineEuro } from 'react-icons/md';
+import ImagePreview from './ImagePreview';
 
 export const EMPTY_PRODUCT = {
   id: crypto.randomUUID(),
@@ -54,17 +55,10 @@ export default function AddForm() {
   //Affichage
   return (
     <AddFormStyled className="add-form" onSubmit={handleSubmit}>
-      <div className="image-preview">
-        {newProduct.imageSource ? (
-          <img
-            className="image"
-            src={newProduct.imageSource}
-            alt={newProduct.title}
-          />
-        ) : (
-          <div className="no-image">Aucune image</div>
-        )}
-      </div>
+      <ImagePreview
+        imageSource={newProduct.imageSource}
+        title={newProduct.title}
+      />
       <div className="input-fields">
         <TextInput
           type="text"
@@ -124,7 +118,7 @@ const AddFormStyled = styled.form`
   grid-column-gap: 20px;
   grid-row-gap: 8px;
 
-  .image-preview {
+  /* .image-preview {
     grid-area: 1 / 1 / 4 / 2;
     display: flex;
     justify-content: center;
@@ -149,7 +143,7 @@ const AddFormStyled = styled.form`
       object-fit: contain;
       object-position: center;
     }
-  }
+  } */
 
   .input-fields {
     grid-area: 1 / 2 / 4 / -2;
