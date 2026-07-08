@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import OrderContext from '../../../../../../context/OrderContext';
-import { FiCheck } from 'react-icons/fi';
 import Button from '../../../../../reusable-ui/Button';
 import { theme } from '../../../../../../theme';
 import TextInput from '../../../../../reusable-ui/TextInput';
@@ -9,6 +8,7 @@ import { FaHamburger } from 'react-icons/fa';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { MdOutlineEuro } from 'react-icons/md';
 import ImagePreview from './ImagePreview';
+import SubmitMessage from './SubmitMessage';
 
 export const EMPTY_PRODUCT = {
   id: crypto.randomUUID(),
@@ -97,12 +97,7 @@ export default function AddForm() {
           onClick={handleSubmit}
           version="success"
         />
-        {isSubmitted && (
-          <div className="submit-message">
-            <FiCheck className="icon" />
-            <span className="message">Ajouté avec succès !</span>
-          </div>
-        )}
+        {isSubmitted && <SubmitMessage />}
       </div>
     </AddFormStyled>
   );
@@ -117,33 +112,6 @@ const AddFormStyled = styled.form`
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 8px;
-
-  /* .image-preview {
-    grid-area: 1 / 1 / 4 / 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .no-image {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid ${theme.colors.greyLight};
-      line-height: 1.5;
-      color: ${theme.colors.greySemiDark};
-      border-radius: ${theme.borderRadius.round};
-      font-size: ${theme.fonts.size.P0};
-      font-weight: ${theme.fonts.weights.regular};
-    }
-    .image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  } */
 
   .input-fields {
     grid-area: 1 / 2 / 4 / -2;
@@ -161,29 +129,6 @@ const AddFormStyled = styled.form`
 
     .submit-button {
       width: 50%;
-    }
-
-    .submit-message {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 5px;
-
-      .icon {
-        color: ${theme.colors.success};
-        margin-left: 10px;
-        width: 1em;
-        height: 1em;
-        border: 1px solid ${theme.colors.success};
-        border-radius: 50%;
-        vertical-align: middle;
-      }
-
-      .message {
-        margin-left: 5px;
-        font-size: ${theme.fonts.size.SM};
-        color: ${theme.colors.success};
-      }
     }
   }
 `;
