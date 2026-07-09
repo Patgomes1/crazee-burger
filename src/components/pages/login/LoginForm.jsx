@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { theme } from '../../../theme';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 import TextInput from '../../reusable-ui/TextInput';
-import { FaRegCircleUser } from 'react-icons/fa6';
-import PrimaryButton from '../../reusable-ui/PrimaryButton';
+import Button from '../../reusable-ui/Button';
+import { BsPersonCircle } from 'react-icons/bs';
 
 export default function LoginForm({ onSuccess }) {
   //State
@@ -29,13 +29,13 @@ export default function LoginForm({ onSuccess }) {
       <TextInput
         value={username}
         onChange={handleChange}
-        Icon={<FaRegCircleUser className="icon" />}
+        Icon={<BsPersonCircle />}
         placeholder={'Entrez votre prénom'}
         required
       />
-      <PrimaryButton
+      <Button
         label={'Accéder à votre espace'}
-        Icon={<IoChevronForwardOutline className="icon" />}
+        Icon={<IoChevronForwardOutline />}
       />
     </LoginFormStyled>
   );
@@ -43,18 +43,18 @@ export default function LoginForm({ onSuccess }) {
 
 //styles
 const LoginFormStyled = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   max-width: 500px;
   min-width: 400px;
   margin: 0px auto;
-  height: 438.31px;
-  margin-top: -100px;
   padding: 40px ${theme.spacing.lg};
   border-radius: ${theme.borderRadius.round};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 438.31px;
+  margin-top: -100px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   h1 {
     font-family: 'Amatic SC', cursive;
@@ -71,16 +71,8 @@ const LoginFormStyled = styled.form`
   }
   hr {
     width: 400px;
-    border: 1px solid ${theme.colors.primary_burger};
+    border: 1px solid ${theme.colors.primary};
     //margin-bottom: ${theme.gridUnit * 5}px;
-  }
-
-  .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: ${theme.fonts.size.SM};
-    margin-left: 10px;
   }
   /* button:hover {
     background-color: ${theme.colors.white};
