@@ -6,13 +6,7 @@ import TextInput from '../../../../../reusable-ui/TextInput';
 import ImagePreview from './ImagePreview';
 import SubmitMessage from './SubmitMessage';
 import { getInputTexts } from './getInputTexts';
-
-export const EMPTY_PRODUCT = {
-  id: crypto.randomUUID(),
-  title: '',
-  imageSource: '',
-  price: 0,
-};
+import { EMPTY_PRODUCT } from './emptyProduct';
 
 export default function AddForm() {
   //State

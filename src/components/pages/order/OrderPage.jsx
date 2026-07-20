@@ -6,7 +6,7 @@ import Main from './Main/Main';
 import Navbar from './Navbar/Navbar';
 import OrderContext from '../../../context/OrderContext.jsx';
 import { fakeMenu } from '../../../fakeData/fakeMenu.jsx';
-import { EMPTY_PRODUCT } from './Main/Admin/AdminPanel/AddForm.jsx';
+import { EMPTY_PRODUCT } from './Main/Admin/AdminPanel/emptyProduct.js';
 
 export default function OrderPage() {
   //State
