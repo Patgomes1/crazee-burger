@@ -6,7 +6,7 @@ import Main from './Main/Main';
 import Navbar from './Navbar/Navbar';
 import OrderContext from '../../../context/OrderContext.jsx';
 import { fakeMenu } from '../../../fakeData/fakeMenu.jsx';
-import { EMPTY_PRODUCT } from './Main/Admin/AdminPanel/AddForm.jsx';
+import { EMPTY_PRODUCT } from './Main/Admin/AdminPanel/emptyProduct.jsx';
 
 export default function OrderPage() {
   //State
@@ -98,7 +98,7 @@ const OrderPageStyled = styled.div`
     .navbar-container {
       position: sticky;
       top: 0;
-      z-index: 1;
+      z-index: 3;
       border-bottom-color: ${theme.colors.lightGray};
     }
   }
